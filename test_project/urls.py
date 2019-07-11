@@ -16,7 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+
+
 urlpatterns = [
+    path('',include('pages.urls')),
+    path('users/',include('users.urls')),
+    #Django’s built-in auth module
+    path('users/',include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
-    path('', include('pages.urls')),
 ]
