@@ -24,4 +24,6 @@ urlpatterns = [
     #Django’s built-in auth module
     path('users/',include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')), # new
+
 ]

@@ -27,7 +27,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SITE_ID = 3
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+
+SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,9 +47,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    'allauth', # new
+    'allauth.account', # new
+    'allauth.socialaccount', # new
+    'allauth.socialaccount.providers.google', # new
+
     'users',  # new
     'pages',
 ]
+
+
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
